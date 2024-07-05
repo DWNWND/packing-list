@@ -1,0 +1,37 @@
+@import "_variables";
+
+section#packinglists {
+  padding: 3rem 1rem;
+}
+
+section#packinglists .lists-container {
+  padding: 2rem 0;
+}
+
+section#packinglists .lists-container .card .card-header {
+  background-color: $main-green;
+}
+
+section#packinglists .lists-container .card .card-header h2 {
+  font-family: lobster, sans-serif;
+  margin: 0;
+  padding: 0.5rem 0;
+  color: white;
+}
+
+section#packinglists .lists-container .card .grouped-items h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+  color: $gray-blue;
+}
+
+section#packinglists .lists-container .card .form-check-input {
+  border-radius: 100%;
+}
+
+section#packinglists .lists-container .card .form-check-label {
+  color: $gray-blue;
+  font-weight: 200;
+}
