@@ -1,0 +1,34 @@
+$main-green: #455043;
+$dark-green: #50594f;
+$mid-green: #848f82;
+$light-green: #aab09f;
+$gray-blue: #375266;
+
+// scss-docs-start colors-map
+$colors: (
+  "main-green": $main-green,
+  "dark-green": $dark-green,
+  "mid-green": $mid-green,
+  "light-green": $light-green,
+  "gray-blue": $gray-blue,
+);
+// scss-docs-end colors-map
+
+// scss-docs-start theme-color-variables
+$primary: $main-green;
+$secondary: $gray-blue;
+$btn-border-radius: 30rem;
+
+$navbar-light-toggler-border-color: none;
+$navbar-toggler-border-radius: 50%;
+$navbar-toggler-focus-width: none;
+
+nav .navbar-toggler {
+  height: 50px;
+  width: 50px;
+  background-color: white
+}
+nav .navbar-toggler .navbar-toggler-icon {
+  width: 100%;
+  color: $main-green;
+}
