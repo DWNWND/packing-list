@@ -20,6 +20,7 @@ $secondary: $gray-blue;
 
 // BTN Styles
 $btn-border-radius: 30rem;
+$btn-padding-x: 1rem;
 
 // NAV styles
 $navbar-light-toggler-border-color: none;
@@ -28,4 +29,6 @@ $navbar-toggler-focus-width: none;
 
 $navbar-light-color: $main-green;
 
-$card-border-color: $main-green
+//Card styles
+$card-border-radius: 1rem;
+$card-border-color: $main-green;

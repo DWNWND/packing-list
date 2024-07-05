@@ -107,7 +107,40 @@
                   </li>
                 </ul>
               </div>
-              <div class="card-footer">Featured</div>
+              <div class="card-footer">
+                <form class="needs-validation" novalidate>
+                  <div class="form-wrapper">
+                    <div class="form-content-wrapper">
+                      <div class="input-label-wrapper">
+                        <label for="newItem" class="form-label text-uppercase">add item</label>
+                        <div class="line"></div>
+                        <div class="new-item-input-wrapper">
+                          <input type="text" class="form-control" id="newItem" placeholder="3 pair of socks" required />
+                        </div>
+                      </div>
+                      <div class="category-checkmarks-wrapper">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="clothesCategoryCheck" required />
+                          <label class="form-check-label" for="clothesCategoryCheck">clothes</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="electronicsCategoryCheck" required />
+                          <label class="form-check-label" for="electronicsCategoryCheck">electronics</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="mischellaneousCategoryCheck" required />
+                          <label class="form-check-label" for="mischellaneousCategoryCheck">mischellaneous</label>
+                          <div class="invalid-feedback">You must choose an item category.</div>
+                        </div>
+                      </div>
+                      <div class="information">Please do not add sensitive information to the lists.</div>
+                    </div>
+                    <div class="submitbtn-wrapper">
+                      <button class="btn btn-primary text-uppercase" type="submit">add</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
           <div class="dropdown">

@@ -27,11 +27,78 @@ section#packinglists .lists-container .card .grouped-items h3 {
   color: $gray-blue;
 }
 
-section#packinglists .lists-container .card .form-check-input {
+section#packinglists .lists-container .card .list-group .form-check-input {
   border-radius: 100%;
 }
 
 section#packinglists .lists-container .card .form-check-label {
   color: $gray-blue;
   font-weight: 200;
+}
+
+section#packinglists .lists-container .card .card-footer {
+  padding: 1rem;
+}
+
+// section#packinglists .lists-container .card .card-footer form {
+//   display: flex;
+//   align-items: center;
+//   gap: 2rem;
+// }
+
+section#packinglists .lists-container .card .card-footer .form-content-wrapper {
+  width: 100%;
+}
+section#packinglists .lists-container .card .card-footer .input-label-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+section#packinglists .lists-container .card .card-footer .submitbtn-wrapper {
+  margin-top: 1rem;
+}
+section#packinglists .lists-container .card .card-footer .new-item-input-wrapper {
+  width: 100%;
+}
+section#packinglists .lists-container .card .card-footer #newItem::placeholder {
+  color: gray;
+  font-weight: 200;
+}
+section#packinglists .lists-container .card .card-footer .information {
+  font-weight: 200;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+section#packinglists .lists-container .card .card-footer .category-checkmarks-wrapper {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 630px) {
+  section#packinglists .lists-container .card .card-footer .input-label-wrapper {
+    flex-wrap: nowrap;
+  }
+  section#packinglists .lists-container .card .card-footer .input-label-wrapper label {
+    width: min-content;
+    text-wrap: nowrap;
+  }
+  section#packinglists .lists-container .card .card-footer .category-checkmarks-wrapper,
+  section#packinglists .lists-container .card .card-footer .information {
+    padding-left: 100px;
+  }
+  section#packinglists .lists-container .card .card-footer .line {
+    height: 40px;
+    border: 0.5px solid $light-green;
+  }
+  section#packinglists .lists-container .card .card-footer .form-wrapper {
+    display: flex;
+    gap: 1rem;
+  }
+  section#packinglists .lists-container .card .card-footer .submitbtn-wrapper {
+    margin-top: 0;
+  }
 }
