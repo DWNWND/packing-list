@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tailwindcss -i ./src/css/input/input.css -o ./src/css/output/output.css"
+    "build": ""
   },
   "repository": {
     "type": "git",
@@ -22,8 +22,5 @@
   "bugs": {
     "url": "https://github.com/DWNWND/packing-list/issues"
   },
-  "homepage": "https://github.com/DWNWND/packing-list#readme",
-  "dependencies": {
-    "tailwindcss": "^3.4.4"
-  }
+  "homepage": "https://github.com/DWNWND/packing-list#readme"
 }
