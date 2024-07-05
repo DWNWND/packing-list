@@ -5,3 +5,19 @@
 * {
   font-family: poppins, sans-serif;
 }
+
+nav .navbar-toggler {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+}
+nav .navbar-toggler .navbar-toggler-icon {
+  width: 100%;
+  color: $main-green;
+}
+
+nav .navbar-brand,
+nav .offcanvas .offcanvas-title {
+  font-family: lobster, sans-serif;
+  color: $main-green;
+}
