@@ -1,0 +1,75 @@
+@import "_variables";
+
+section#countdown {
+  // background-color: $mid-green;
+  margin-top: 11rem;
+  padding: 3rem 1rem;
+  background-image: url("../../src/img/thailand.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+section#countdown .bullet .line {
+  border: 0.5px solid $light-green;
+  width: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section#countdown .bullet {
+  background-color: white;
+  padding: 2rem 1.5rem;
+  border-radius: 5rem;
+  display: grid;
+  width: max-content;
+}
+
+section#countdown .counter {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section#countdown .counter .time {
+  font-size: 1.5rem;
+}
+
+section#countdown .counter .label {
+  font-size: 0.8rem;
+  color: $mid-green;
+}
+
+section#countdown .counter .time,
+section#countdown .counter .label {
+  font-weight: 200;
+}
+
+@media (min-width: 275px) {
+  section#countdown {
+    margin-top: 8rem;
+  }
+}
+
+@media (min-width: 486px) {
+  section#countdown {
+    margin-top: 6rem;
+  }
+  section#countdown .bullet .line {
+    height: 30px;
+    width: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  section#countdown .bullet {
+    grid-auto-flow: column;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (min-width: 550px) {
+  section#countdown .bullet {
+    padding: 1.5rem 3rem;
+  }
+}
