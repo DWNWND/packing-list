@@ -1,0 +1,29 @@
+{
+  "name": "packing-list",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "My packing list for moving to Thailand",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tailwindcss -i ./src/css/input/input.css -o ./src/css/output/output.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DWNWND/packing-list.git"
+  },
+  "keywords": [
+    "packing",
+    "to-do",
+    "moving"
+  ],
+  "author": "DWNWND",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DWNWND/packing-list/issues"
+  },
+  "homepage": "https://github.com/DWNWND/packing-list#readme",
+  "dependencies": {
+    "tailwindcss": "^3.4.4"
+  }
+}
