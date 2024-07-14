@@ -4,22 +4,34 @@ section#packinglists {
   padding: 3rem 1rem;
 }
 
-section#packinglists .lists-container {
-  padding: 2rem 0;
+section#packinglists .container-fluid {
+  max-width: 2000px;
 }
 
-section#packinglists .lists-container .card .card-header {
+section#packinglists .lists-container {
+  padding: 2rem 0;
+  display: grid;
+  gap: 1rem;
+}
+
+section#packinglists .card,
+section#packinglists .card .card-footer .form-content-wrapper,
+section#packinglists .card .card-footer .new-item-input-wrapper {
+  width: 100%;
+}
+
+section#packinglists .card .card-header {
   background-color: $main-green;
 }
 
-section#packinglists .lists-container .card .card-header h2 {
+section#packinglists .card .card-header h2 {
   font-family: lobster, sans-serif;
   margin: 0;
   padding: 0.5rem 0;
   color: white;
 }
 
-section#packinglists .lists-container .card .grouped-items h3 {
+section#packinglists .card .grouped-items h3 {
   font-size: 1rem;
   font-weight: 600;
   margin-left: 0.5rem;
@@ -27,60 +39,74 @@ section#packinglists .lists-container .card .grouped-items h3 {
   color: $gray-blue;
 }
 
-section#packinglists .lists-container .card .list-group .form-check-input {
+section#packinglists .card .list-group .x-remove,
+section#packinglists .card .list-group input,
+section#packinglists .card .list-group label {
+  cursor: pointer;
+}
+
+section#packinglists .card .list-group .x-remove {
+  color: $light-gray-blue;
+  margin-right: 0.8rem;
+}
+
+section#packinglists .card .list-group .x-remove:hover {
+  color: $gray-blue;
+}
+
+section#packinglists .card .list-group input {
   border-radius: 100%;
 }
 
-section#packinglists .lists-container .card .form-check-label {
+section#packinglists .card .list-group label {
   color: $gray-blue;
   font-weight: 200;
 }
 
-section#packinglists .lists-container .card .card-footer {
+section#packinglists .card .list-group label.checked {
+  text-decoration: line-through;
+  color: $light-gray-blue;
+}
+
+section#packinglists .card .card-footer {
   padding: 1rem;
 }
 
-// section#packinglists .lists-container .card .card-footer form {
-//   display: flex;
-//   align-items: center;
-//   gap: 2rem;
-// }
-
-section#packinglists .lists-container .card .card-footer .form-content-wrapper {
-  width: 100%;
-}
-section#packinglists .lists-container .card .card-footer .input-label-wrapper {
+section#packinglists .card .card-footer .input-label-wrapper {
   display: flex;
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-section#packinglists .lists-container .card .card-footer .submitbtn-wrapper {
+section#packinglists .card .card-footer .submitbtn-wrapper {
   margin-top: 1rem;
 }
-section#packinglists .lists-container .card .card-footer .new-item-input-wrapper {
-  width: 100%;
-}
-section#packinglists .lists-container .card .card-footer #newItem::placeholder {
+
+section#packinglists .card .card-footer #newItem::placeholder {
   color: gray;
   font-weight: 200;
 }
-section#packinglists .lists-container .card .card-footer .information {
+section#packinglists .card .card-footer .information {
   font-weight: 200;
   font-size: 0.8rem;
   font-style: italic;
 }
-section#packinglists .lists-container .card .card-footer .category-checkmarks-wrapper {
+section#packinglists .card .card-footer .category-checkmarks-wrapper {
   display: flex;
   gap: 0.6rem;
   padding: 0.5rem 0;
   flex-wrap: wrap;
+  font-weight: 200;
 }
 
 @media (min-width: 630px) {
   section#packinglists .lists-container .card .card-footer .input-label-wrapper {
     flex-wrap: nowrap;
+  }
+  section#packinglists .lists-container .card .card-footer .form-check input,
+  section#packinglists .lists-container .card .card-footer .form-check label {
+    cursor: pointer;
   }
   section#packinglists .lists-container .card .card-footer .input-label-wrapper label {
     width: min-content;
@@ -100,5 +126,23 @@ section#packinglists .lists-container .card .card-footer .category-checkmarks-wr
   }
   section#packinglists .lists-container .card .card-footer .submitbtn-wrapper {
     margin-top: 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  section#packinglists .lists-container.multiple-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  section#packinglists .container-fluid.single-card {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 2200px) {
+  section#packinglists .lists-container {
+    gap: 2rem;
   }
 }
