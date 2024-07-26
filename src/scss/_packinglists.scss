@@ -48,6 +48,7 @@ section#packinglists .card .list-group label {
 section#packinglists .card .list-group .x-remove {
   color: $light-gray-blue;
   margin-right: 0.8rem;
+  font-weight: 200;
 }
 
 section#packinglists .card .list-group .x-remove:hover {
@@ -60,12 +61,13 @@ section#packinglists .card .list-group input {
 
 section#packinglists .card .list-group label {
   color: $gray-blue;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 section#packinglists .card .list-group label.checked {
   text-decoration: line-through;
   color: $light-gray-blue;
+  font-weight: 200;;
 }
 
 section#packinglists .card .card-footer {
