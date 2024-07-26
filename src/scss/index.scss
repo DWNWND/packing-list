@@ -23,3 +23,8 @@ nav .offcanvas .offcanvas-title {
   font-family: lobster, sans-serif;
   color: $main-green;
 }
+
+.form-check-input:checked {
+  background-color: $light-gray-blue;
+  border-color: $light-gray-blue;
+}
