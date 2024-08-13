@@ -34,7 +34,7 @@ export function removeItem() {
       }
       removeFromArray(groupId, itemId, luggageType);
       liElement.remove();
-      // location.reload();
+      location.reload();
     });
   });
 }
