@@ -71,93 +71,19 @@
         <div class="container-fluid single-card">
           <h1 class="text-center">Your packing list for moving to Thailand.</h1>
           <div class="lists-container" id="lists">
-            <!-- <div class="card">
-              <div class="card-header"><h2>Main luggage</h2></div>
-              <div class="grouped-items" id="cardBody">
-                <h3 class="text-uppercase">clothes</h3>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item d-flex">
-                    <span class="x-remove">×</span>
-                    <label class="form-check-label" for="firstCheckboxStretched">First checkbox</label>
-                    <input class="form-check-input ms-auto" type="checkbox" value="" id="firstCheckboxStretched" />
-                  </li>
-                  <li class="list-group-item d-flex">
-                    <span class="x-remove">×</span>
-                    <label class="form-check-label" for="secondCheckboxStretched">Second checkbox</label>
-                    <input class="form-check-input ms-auto" type="checkbox" value="" id="secondCheckboxStretched" />
-                  </li>
-                  <li class="list-group-item d-flex">
-                    <span class="x-remove">×</span>
-                    <label class="form-check-label" for="thirdCheckboxStretched">Third checkbox</label>
-                    <input class="form-check-input ms-auto" type="checkbox" value="" id="thirdCheckboxStretched" />
-                  </li>
-                </ul>
-              </div>
-              <div class="grouped-items">
-                <h3 class="text-uppercase">electronics</h3>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item d-flex">
-                    <span class="x-remove">×</span>
-                    <label class="form-check-label checked" for="fourthCheckboxStretched">Fourth checkbox</label>
-                    <input class="form-check-input ms-auto" type="checkbox" value="" id="fourthCheckboxStretched" />
-                  </li>
-                  <li class="list-group-item d-flex">
-                    <span class="x-remove">×</span>
-                    <label class="form-check-label" for="fifthCheckboxStretched">Fifth checkbox</label>
-                    <input class="form-check-input ms-auto" type="checkbox" value="" id="fifthCheckboxStretched" />
-                  </li>
-                  <li class="list-group-item d-flex">
-                    <span class="x-remove">×</span>
-                    <label class="form-check-label" for="sixthCheckboxStretched">Sixth checkbox</label>
-                    <input class="form-check-input ms-auto" type="checkbox" value="" id="sixthCheckboxStretched" />
-                  </li>
-                </ul>
-              </div>
-              <div class="card-footer">
-                <form class="needs-validation" novalidate>
-                  <div class="form-wrapper">
-                    <div class="form-content-wrapper">
-                      <div class="input-label-wrapper">
-                        <label for="newItem" class="form-label text-uppercase">add item</label>
-                        <div class="line"></div>
-                        <div class="new-item-input-wrapper">
-                          <input type="text" class="form-control" id="newItem" placeholder="Example: 3 pair of socks" required />
-                        </div>
-                      </div>
-                      <div class="category-checkmarks-wrapper">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="clothesCategoryCheck" required />
-                          <label class="form-check-label" for="clothesCategoryCheck">clothes</label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="electronicsCategoryCheck" required />
-                          <label class="form-check-label" for="electronicsCategoryCheck">electronics</label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="mischellaneousCategoryCheck" required />
-                          <label class="form-check-label" for="mischellaneousCategoryCheck">mischellaneous</label>
-                          <div class="invalid-feedback">You must choose an item category.</div>
-                        </div>
-                      </div>
-                      <div class="information">Please do not add sensitive information to the lists.</div>
-                    </div>
-                    <div class="submitbtn-wrapper">
-                      <button class="btn btn-primary text-uppercase" type="submit">add</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div> -->
           </div>
-          <div class="dropdown">
-            <button class="btn btn-outline-primary dropdown-toggle text-uppercase fw-semibold" type="button" data-bs-toggle="dropdown" aria-expanded="false">add luggage</button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Main luggage</a></li>
-              <li><a class="dropdown-item" href="#">Cabin luggage</a></li>
-              <li><a class="dropdown-item" href="#">Purse</a></li>
-              <li><a class="dropdown-item" href="#">Personal item</a></li>
-              <li><a class="dropdown-item" href="#">Pet carrier</a></li>
-            </ul>
+          <div class="d-flex gap-2">
+            <div class="dropdown">
+              <button id="addLuggageButton" class="btn btn-primary dropdown-toggle text-uppercase fw-semibold" type="button" data-bs-toggle="dropdown" aria-expanded="false">add luggage</button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Main luggage</a></li>
+                <li><a class="dropdown-item" href="#">Cabin luggage</a></li>
+                <li><a class="dropdown-item" href="#">Purse</a></li>
+                <li><a class="dropdown-item" href="#">Personal item</a></li>
+                <li><a class="dropdown-item" href="#">Pet carrier</a></li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-outline-primary text-uppercase fw-semibold">reset all</button>
           </div>
         </div>
       </section>
