@@ -24,7 +24,19 @@ nav .offcanvas .offcanvas-title {
   color: $main-green;
 }
 
+nav .nav-btns,
+nav .nav-btns * {
+  width: 100%;
+}
+
 .form-check-input:checked {
   background-color: $light-gray-blue;
   border-color: $light-gray-blue;
+}
+
+@media (min-width: 562px) {
+  nav .nav-btns,
+  nav .nav-btns * {
+    width: auto;
+  }
 }
