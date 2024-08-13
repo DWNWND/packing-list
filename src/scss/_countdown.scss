@@ -57,7 +57,7 @@ section#countdown .counter .label {
 
 @media (min-width: 486px) {
   section#countdown {
-    margin-top: 6rem;
+    margin-top: 8rem;
   }
   section#countdown .bullet .line {
     height: 30px;
@@ -75,5 +75,16 @@ section#countdown .counter .label {
 @media (min-width: 550px) {
   section#countdown .bullet {
     padding: 1.5rem 3rem;
+  }
+}
+
+@media (min-width: 562px) {
+  section#countdown {
+    margin-top: 6rem;
+  }
+}
+@media (min-width: 768px) {
+  section#countdown {
+    margin-top: 6rem;
   }
 }
