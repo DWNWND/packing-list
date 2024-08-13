@@ -16,7 +16,7 @@
   <body>
     <header>
       <nav class="navbar fixed-top">
-        <div class="container-fluid gap-2">
+        <div class="container-fluid gap-2 flex-md-nowrap">
           <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
               <h5 class="offcanvas-title" id="offcanvasNavbarLabel">LetsMoveToThailand.com</h5>
@@ -38,12 +38,8 @@
           </button>
           <a class="navbar-brand me-auto" href="#">LetsMoveToThailand.com</a>
           <!-- <button type="button" class="btn btn-outline-primary me-auto me-sm-0 ms-sm-auto text-uppercase fw-semibold">bookmark this page</button> -->
-          <div class="d-flex gap-2 me-auto me-md-0 ms-md-auto flex-column flex-md-row">
-            <div class="btn bg-white btn-outline-secondary add-date d-flex justify-content-center align-items-center flex-row gap-2">
-              <label for="departuretime">Departure:</label>
-              <input type="datetime-local" id="departuretime" name="departuretime" />
-            </div>
-            <button type="button" class="btn bg-white btn-outline-primary text-uppercase fw-semibold" id="resetbtn">reset all</button>
+          <div class="d-flex gap-2 align-items-center me-auto me-sm-0 ms-sm-auto flex-row nav-btns">
+            <button type="button" class="btn bg-white btn-outline-primary text-uppercase fw-semibold text-nowrap" id="resetbtn">reset all</button>
             <div class="dropdown">
               <button id="addLuggageButton" class="btn btn-primary dropdown-toggle text-uppercase fw-semibold" type="button" data-bs-toggle="dropdown" aria-expanded="false">add luggage</button>
               <ul class="dropdown-menu">
@@ -84,9 +80,16 @@
           </div>
         </div>
       </section>
+      <div class="container p-3">
+        <div class="btn w-100 bg-white btn-outline-secondary add-date d-flex justify-content-center align-items-center flex-row gap-2 flex-wrap">
+          <label for="departuretime">Departure:</label>
+          <input type="datetime-local" id="departuretime" name="departuretime" />
+        </div>
+      </div>
+
       <section id="packinglists">
         <div class="container-fluid single-card">
-          <h1 class="text-center">Your packing list for moving to Thailand.</h1>
+          <!-- <h1 class="text-center">Your packing list for moving to Thailand.</h1> -->
           <div class="lists-container" id="lists"></div>
         </div>
       </section>
