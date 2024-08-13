@@ -6,6 +6,7 @@ export var mainfootwear = [
   { item: "Dress shoes (1)", checked: false },
   { item: "Indoor slippers", checked: false },
 ];
+export var mainelectronics = [];
 export var maintoiletries = [
   { item: "Tampons**", checked: false },
   { item: "Hair care (Redken)**", checked: false },
@@ -68,6 +69,9 @@ export var cabinclothes = [
   { item: "t-shirt", checked: false },
   { item: "socks", checked: false },
 ];
+export var cabinfootwear = [];
+export var cabinpersonalitems = [];
+export var cabintoiletries = [];
 
 //INT PURSE LUGGAGE
 export var purseelectronics = [
@@ -85,6 +89,9 @@ export var purseclothes = [
   { item: "t-shirt", checked: false },
   { item: "socks", checked: false },
 ];
+export var pursefootwear = [];
+export var pursepersonalitems = [];
+export var pursetoiletries = [];
 
 //INT PERSONAL LUGGAGE
 export var personalelectronics = [
@@ -102,9 +109,12 @@ export var personalclothes = [
   { item: "t-shirt", checked: false },
   { item: "socks", checked: false },
 ];
+export var personalfootwear = [];
+export var personalpersonalitems = [];
+export var personaltoiletries = [];
 
 //INT PET CARRIER
-export var petaccessories = [
+export var petelectronics = [
   { item: "charger", checked: false },
   { item: "headset", checked: false },
   { item: "laptop", checked: false },
@@ -114,6 +124,10 @@ export var petmischellaneous = [
   { item: "snacks", checked: false },
   { item: "toothbrush", checked: false },
 ];
+export var petclothes = [];
+export var petfootwear = [];
+export var petpersonalitems = [];
+export var pettoiletries = [];
 
 export function addRandomItemIds(array) {
   array.forEach((item) => {
@@ -123,20 +137,45 @@ export function addRandomItemIds(array) {
 }
 
 export function generateIds() {
+  //MAIN LUGGAGE
   addRandomItemIds(mainelectronics);
   addRandomItemIds(mainmischellaneous);
   addRandomItemIds(mainclothes);
+  addRandomItemIds(mainfootwear);
+  addRandomItemIds(maintoiletries);
+  addRandomItemIds(mainpersonalitems);
+
+  //CABIN LUGGAGE
   addRandomItemIds(cabinelectronics);
   addRandomItemIds(cabinmischellaneous);
   addRandomItemIds(cabinclothes);
+  addRandomItemIds(cabinfootwear);
+  addRandomItemIds(cabintoiletries);
+  addRandomItemIds(cabinpersonalitems);
+
+  //PURSE LUGGAGE
   addRandomItemIds(purseelectronics);
   addRandomItemIds(pursemischellaneous);
   addRandomItemIds(purseclothes);
+  addRandomItemIds(pursefootwear);
+  addRandomItemIds(pursetoiletries);
+  addRandomItemIds(pursepersonalitems);
+
+  //PERSONAL LUGGAGE
   addRandomItemIds(personalelectronics);
   addRandomItemIds(personalmischellaneous);
   addRandomItemIds(personalclothes);
-  addRandomItemIds(petaccessories);
+  addRandomItemIds(personalfootwear);
+  addRandomItemIds(personaltoiletries);
+  addRandomItemIds(personalpersonalitems);
+
+  //PET CARRIER
+  addRandomItemIds(petelectronics);
   addRandomItemIds(petmischellaneous);
+  addRandomItemIds(petclothes);
+  addRandomItemIds(petfootwear);
+  addRandomItemIds(pettoiletries);
+  addRandomItemIds(petpersonalitems);
 }
 
 export function initializeStorage(luggageType) {
@@ -145,6 +184,9 @@ export function initializeStorage(luggageType) {
       clothes: mainclothes,
       electronics: mainelectronics,
       mischellaneous: mainmischellaneous,
+      footwear: mainfootwear,
+      toiletries: maintoiletries,
+      personalitems: mainpersonalitems,
     };
     localStorage.setItem("mainLuggage", JSON.stringify(mainLuggage));
   }
@@ -153,6 +195,9 @@ export function initializeStorage(luggageType) {
       clothes: cabinclothes,
       electronics: cabinelectronics,
       mischellaneous: cabinmischellaneous,
+      footwear: cabinfootwear,
+      toiletries: cabintoiletries,
+      personalitems: cabinpersonalitems,
     };
     localStorage.setItem("cabinLuggage", JSON.stringify(cabinLuggage));
   }
@@ -162,6 +207,9 @@ export function initializeStorage(luggageType) {
       clothes: personalclothes,
       electronics: personalelectronics,
       mischellaneous: personalmischellaneous,
+      footwear: personalfootwear,
+      toiletries: personaltoiletries,
+      personalitems: personalpersonalitems,
     };
     localStorage.setItem("personalLuggage", JSON.stringify(personalLuggage));
   }
@@ -171,14 +219,21 @@ export function initializeStorage(luggageType) {
       clothes: purseclothes,
       electronics: purseelectronics,
       mischellaneous: pursemischellaneous,
+      footwear: pursefootwear,
+      toiletries: pursetoiletries,
+      personalitems: pursepersonalitems,
     };
     localStorage.setItem("purseLuggage", JSON.stringify(purseLuggage));
   }
 
   if (luggageType.includes("pet")) {
     const petCarrier = {
-      accessories: petaccessories,
+      clothes: petclothes,
+      electronics: petelectronics,
       mischellaneous: petmischellaneous,
+      footwear: petfootwear,
+      toiletries: pettoiletries,
+      personalitems: petpersonalitems,
     };
     localStorage.setItem("petCarrier", JSON.stringify(petCarrier));
   } else if (!luggageType) {
