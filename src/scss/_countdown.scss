@@ -1,5 +1,9 @@
 @import "_variables";
 
+input#departuretime {
+  border: none;
+  color: $gray-blue;
+}
 section#countdown {
   // background-color: $mid-green;
   margin-top: 11rem;
