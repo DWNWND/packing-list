@@ -37,7 +37,24 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <a class="navbar-brand me-auto" href="#">LetsMoveToThailand.com</a>
-          <button type="button" class="btn btn-outline-primary me-auto me-sm-0 ms-sm-auto text-uppercase fw-semibold">bookmark this page</button>
+          <!-- <button type="button" class="btn btn-outline-primary me-auto me-sm-0 ms-sm-auto text-uppercase fw-semibold">bookmark this page</button> -->
+          <div class="d-flex gap-2 me-auto me-md-0 ms-md-auto flex-column flex-md-row">
+            <div class="btn bg-white btn-outline-secondary add-date d-flex justify-content-center align-items-center flex-row gap-2">
+              <label for="departuretime">Departure:</label>
+              <input type="datetime-local" id="departuretime" name="departuretime" />
+            </div>
+            <button type="button" class="btn bg-white btn-outline-primary text-uppercase fw-semibold">reset all</button>
+            <div class="dropdown">
+              <button id="addLuggageButton" class="btn btn-primary dropdown-toggle text-uppercase fw-semibold" type="button" data-bs-toggle="dropdown" aria-expanded="false">add luggage</button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Main luggage</a></li>
+                <li><a class="dropdown-item" href="#">Cabin luggage</a></li>
+                <li><a class="dropdown-item" href="#">Purse</a></li>
+                <li><a class="dropdown-item" href="#">Personal item</a></li>
+                <li><a class="dropdown-item" href="#">Pet carrier</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
@@ -70,21 +87,7 @@
       <section id="packinglists">
         <div class="container-fluid single-card">
           <h1 class="text-center">Your packing list for moving to Thailand.</h1>
-          <div class="lists-container" id="lists">
-          </div>
-          <div class="d-flex gap-2">
-            <div class="dropdown">
-              <button id="addLuggageButton" class="btn btn-primary dropdown-toggle text-uppercase fw-semibold" type="button" data-bs-toggle="dropdown" aria-expanded="false">add luggage</button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Main luggage</a></li>
-                <li><a class="dropdown-item" href="#">Cabin luggage</a></li>
-                <li><a class="dropdown-item" href="#">Purse</a></li>
-                <li><a class="dropdown-item" href="#">Personal item</a></li>
-                <li><a class="dropdown-item" href="#">Pet carrier</a></li>
-              </ul>
-            </div>
-            <button type="button" class="btn btn-outline-primary text-uppercase fw-semibold">reset all</button>
-          </div>
+          <div class="lists-container" id="lists"></div>
         </div>
       </section>
     </main>
