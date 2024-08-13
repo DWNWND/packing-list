@@ -88,6 +88,7 @@ export var cabinclothes = [
 //INT PURSE LUGGAGE
 export var pursefootwear = [];
 export var pursepersonalitems = [];
+export var purseclothes = [];
 export var purseelectronics = [
   { item: "Charger (phones, headsets, ipad)", checked: false },
   { item: "Noise-cancelling earbuds", checked: false },
@@ -135,7 +136,7 @@ export var petclothes = [];
 export var petfootwear = [];
 export var petpersonalitems = [];
 export var pettoiletries = [];
-export var petelectronics = [{ item: "microchip scanner + charger", checked: false }, ,];
+export var petelectronics = [{ item: "microchip scanner + charger", checked: false }];
 export var petmischellaneous = [
   { item: "Passport + all other important documents", checked: false },
   { item: "Linen shirt or scarf to cover the carrier", checked: false },
