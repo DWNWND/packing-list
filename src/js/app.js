@@ -3,6 +3,7 @@ import { initializeStorage, generateIds } from "./initObj.js";
 import { addItem, removeItem, checkedItem } from "./functionality/item/index.js";
 import { removeList } from "./functionality/item/index.js";
 import { getDeparturetime, countdown } from "./functionality/departure/getdate.js";
+import { resetFunctionality } from "./functionality/storage/reset.js";
 
 function app() {
   // addLuggage();
@@ -12,6 +13,7 @@ function app() {
   generateLuggageOnLoad();
   listenForAddLuggage();
   checkedItem();
+  resetFunctionality();
 }
 app();
 
