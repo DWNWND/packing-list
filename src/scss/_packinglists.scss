@@ -14,10 +14,18 @@ section#packinglists .lists-container {
   gap: 2rem;
 }
 
+section#packinglists .card {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
 section#packinglists .card,
 section#packinglists .card .card-footer .form-content-wrapper,
 section#packinglists .card .card-footer .new-item-input-wrapper {
   width: 100%;
+}
+
+section#packinglists .card .card-footer {
+  height: 100%;
 }
 
 section#packinglists .card .card-header {
@@ -72,7 +80,7 @@ section#packinglists .card .list-group label {
 section#packinglists .card .list-group label.checked {
   text-decoration: line-through;
   color: $light-gray-blue;
-  font-weight: 200;
+  font-weight: 100;
 }
 
 section#packinglists .card .card-footer {
