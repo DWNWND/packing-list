@@ -33,6 +33,7 @@ function listenForAddLuggage() {
       const luggageType = luggage.innerText;
       addNewLuggages(luggageType);
       checkedItem();
+      location.reload();
     });
   });
 }
