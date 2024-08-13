@@ -37,49 +37,20 @@ export function newItemFooterTemplate(luggageType) {
   const categoryCheckmarksWrapper = document.createElement("div");
   categoryCheckmarksWrapper.classList.add("category-checkmarks-wrapper", "required"); //add function connected to the required class
 
-  const checkClothes = document.createElement("div");
-  checkClothes.classList.add("form-check");
-  const checkClothesInput = document.createElement("input");
-  checkClothesInput.classList.add("form-check-input");
-  checkClothesInput.type = "checkbox";
-  checkClothesInput.id = `${luggageType}clothesCategoryCheck`;
-  const checkClothesLabel = document.createElement("label");
-  checkClothesLabel.classList.add("form-check-label");
-  checkClothesLabel.htmlFor = `${luggageType}clothesCategoryCheck`;
-  checkClothesLabel.innerText = "clothes";
-
-  const checkElectronics = document.createElement("div");
-  checkElectronics.classList.add("form-check");
-  const checkElectronicsInput = document.createElement("input");
-  checkElectronicsInput.classList.add("form-check-input");
-  checkElectronicsInput.type = "checkbox";
-  checkElectronicsInput.id = `${luggageType}electronicsCategoryCheck`;
-  const checkElectronicsLabel = document.createElement("label");
-  checkElectronicsLabel.classList.add("form-check-label");
-  checkElectronicsLabel.htmlFor = `${luggageType}electronicsCategoryCheck`;
-  checkElectronicsLabel.innerText = "electronics";
-
-  const checkMischellaneous = document.createElement("div");
-  checkMischellaneous.classList.add("form-check");
-  const checkMischellaneousInput = document.createElement("input");
-  checkMischellaneousInput.classList.add("form-check-input");
-  checkMischellaneousInput.type = "checkbox";
-  checkMischellaneousInput.id = `${luggageType}mischellaneousCategoryCheck`;
-  const checkMischellaneousLabel = document.createElement("label");
-  checkMischellaneousLabel.classList.add("form-check-label");
-  checkMischellaneousLabel.htmlFor = `${luggageType}mischellaneousCategoryCheck`;
-  checkMischellaneousLabel.innerText = "mischellaneous";
+  const checkClothes = makeCheckboxFor(luggageType, "clothes");
+  const checkElectronics = makeCheckboxFor(luggageType, "electronics");
+  const checkMischellaneous = makeCheckboxFor(luggageType, "mischellaneous");
+  const checkFootwear = makeCheckboxFor(luggageType, "footwear"); 
+  const checkToiletries = makeCheckboxFor(luggageType, "toiletries");
+  const checkPersonalitems = makeCheckboxFor(luggageType, "personalitems");
 
   const feedback = document.createElement("div");
   feedback.classList.add("invalid-feedback");
   feedback.innerText = "You must choose an item category.";
 
-  checkClothes.append(checkClothesInput, checkClothesLabel);
-  checkElectronics.append(checkElectronicsInput, checkElectronicsLabel);
   newItemInputWrapper.append(input);
   inputLabelWrapper.append(label, line, newItemInputWrapper);
-  checkMischellaneous.append(checkMischellaneousInput, checkMischellaneousLabel, feedback);
-  categoryCheckmarksWrapper.append(checkClothes, checkElectronics, checkMischellaneous);
+  categoryCheckmarksWrapper.append(checkClothes, checkElectronics, checkMischellaneous, checkFootwear, checkToiletries, checkPersonalitems);
 
   const information = document.createElement("div");
   information.classList.add("information");
@@ -100,4 +71,21 @@ export function newItemFooterTemplate(luggageType) {
   form.append(formWrapper);
   cardFooter.append(form);
   return cardFooter;
+}
+
+function makeCheckboxFor(luggageType, groupType) {
+  const checkbox = document.createElement("div");
+  checkbox.classList.add("form-check");
+  const checkboxInput = document.createElement("input");
+  checkboxInput.classList.add("form-check-input");
+  checkboxInput.type = "checkbox";
+  checkboxInput.id = `${luggageType}${groupType}CategoryCheck`;
+  const checkboxLabel = document.createElement("label");
+  checkboxLabel.classList.add("form-check-label");
+  checkboxLabel.htmlFor = `${luggageType}${groupType}CategoryCheck`;
+  checkboxLabel.innerText = groupType;
+
+  checkbox.append(checkboxInput, checkboxLabel);
+
+  return checkbox;
 }
