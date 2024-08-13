@@ -81,7 +81,7 @@ section#packinglists .container-fluid, section#packinglists .container-xxl, sect
 section#packinglists .lists-container {
   padding: 2rem 0;
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 section#packinglists .card,
@@ -92,6 +92,12 @@ section#packinglists .card .card-footer .new-item-input-wrapper {
 
 section#packinglists .card .card-header {
   background-color: #455043;
+}
+
+section#packinglists .card .card-header .x-remove-list {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
 }
 
 section#packinglists .card .card-header h2, section#packinglists .card .card-header .h2 {
@@ -131,7 +137,7 @@ section#packinglists .card .list-group input {
 
 section#packinglists .card .list-group label {
   color: #375266;
-  font-weight: 400;
+  font-weight: 200;
 }
 
 section#packinglists .card .list-group label.checked {
@@ -174,6 +180,26 @@ section#packinglists .card .card-footer .category-checkmarks-wrapper {
   font-weight: 200;
 }
 
+section#packinglists #cabinLuggage .card-header {
+  background-color: #848f82;
+}
+
+section#packinglists #mainLuggage .card-header {
+  background-color: #455043;
+}
+
+section#packinglists #personalLuggage .card-header {
+  background-color: #3e415b;
+}
+
+section#packinglists #purseLuggage .card-header {
+  background-color: #375266;
+}
+
+section#packinglists #petCarrier .card-header {
+  background-color: #684b4b;
+}
+
 @media (min-width: 630px) {
   section#packinglists .lists-container .card .card-footer .input-label-wrapper {
     flex-wrap: nowrap;
@@ -201,13 +227,22 @@ section#packinglists .card .card-footer .category-checkmarks-wrapper {
   section#packinglists .lists-container .card .card-footer .submitbtn-wrapper {
     margin-top: 0;
   }
+  section#packinglists .card .grouped-items {
+    padding: 0 1.5rem;
+  }
+  section#packinglists .card .grouped-items h3, section#packinglists .card .grouped-items .h3 {
+    padding: 0.5rem 0;
+  }
+  section#packinglists .card {
+    gap: 1.5rem;
+  }
 }
 @media (min-width: 1000px) {
   section#packinglists .lists-container.multiple-cards {
     grid-template-columns: 1fr 1fr;
   }
   section#packinglists .container-fluid.single-card, section#packinglists .single-card.container-xxl, section#packinglists .single-card.container-xl, section#packinglists .single-card.container-lg, section#packinglists .single-card.container-md, section#packinglists .single-card.container-sm {
-    max-width: 900px;
+    max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
   }
