@@ -11,7 +11,7 @@ section#packinglists .container-fluid {
 section#packinglists .lists-container {
   padding: 2rem 0;
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 section#packinglists .card,
@@ -24,6 +24,11 @@ section#packinglists .card .card-header {
   background-color: $main-green;
 }
 
+section#packinglists .card .card-header .x-remove-list {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
 section#packinglists .card .card-header h2 {
   font-family: lobster, sans-serif;
   margin: 0;
@@ -61,13 +66,13 @@ section#packinglists .card .list-group input {
 
 section#packinglists .card .list-group label {
   color: $gray-blue;
-  font-weight: 400;
+  font-weight: 200;
 }
 
 section#packinglists .card .list-group label.checked {
   text-decoration: line-through;
   color: $light-gray-blue;
-  font-weight: 200;;
+  font-weight: 200;
 }
 
 section#packinglists .card .card-footer {
@@ -102,6 +107,26 @@ section#packinglists .card .card-footer .category-checkmarks-wrapper {
   font-weight: 200;
 }
 
+section#packinglists #cabinLuggage .card-header {
+  background-color: $mid-green;
+}
+
+section#packinglists #mainLuggage .card-header {
+  background-color: $main-green;
+}
+
+section#packinglists #personalLuggage .card-header {
+  background-color: $gray-purple;
+}
+
+section#packinglists #purseLuggage .card-header {
+  background-color: $gray-blue;
+}
+
+section#packinglists #petCarrier .card-header {
+  background-color: $gray-brown;
+}
+
 @media (min-width: 630px) {
   section#packinglists .lists-container .card .card-footer .input-label-wrapper {
     flex-wrap: nowrap;
@@ -129,6 +154,15 @@ section#packinglists .card .card-footer .category-checkmarks-wrapper {
   section#packinglists .lists-container .card .card-footer .submitbtn-wrapper {
     margin-top: 0;
   }
+  section#packinglists .card .grouped-items {
+    padding: 0 1.5rem;
+  }
+  section#packinglists .card .grouped-items h3 {
+    padding: 0.5rem 0;
+  }
+  section#packinglists .card {
+    gap: 1.5rem;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -137,7 +171,7 @@ section#packinglists .card .card-footer .category-checkmarks-wrapper {
   }
 
   section#packinglists .container-fluid.single-card {
-    max-width: 900px;
+    max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
   }
