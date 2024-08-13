@@ -2,10 +2,13 @@ import { listTemplate, listGroupTemplate, newItemFooterTemplate } from "./templa
 import { initializeStorage, generateIds } from "./initObj.js";
 import { addItem, removeItem, checkedItem } from "./functionality/item/index.js";
 import { removeList } from "./functionality/item/index.js";
+import { getDeparturetime, countdown } from "./functionality/departure/getdate.js";
 
 function app() {
   // addLuggage();
   // addItem();
+  getDeparturetime();
+  countdown();
   generateLuggageOnLoad();
   listenForAddLuggage();
   checkedItem();
@@ -32,6 +35,21 @@ function listenForAddLuggage() {
   });
 }
 
+function generateLuggage(luggage, luggageType, addItemTo) {
+  const parsedLuggage = JSON.parse(luggage);
+  if (parsedLuggage.clothes.length >= 1 || parsedLuggage.electronics.length > 1 || parsedLuggage.mischellaneous.length > 1 || parsedLuggage.footwear.length > 1 || parsedLuggage.toiletries.length > 1 || parsedLuggage.personalitems.length > 1) {
+    const luggageCard = listTemplate(luggageType);
+    for (const [key, value] of Object.entries(parsedLuggage)) {
+      listGroupTemplate(luggageType, key, value, luggageCard);
+    }
+    const cardFooter = newItemFooterTemplate(addItemTo);
+    luggageCard.appendChild(cardFooter);
+    addItem(addItemTo);
+  } else {
+    console.log("theres luggagecards without content in storage");
+  }
+}
+
 function generateLuggageOnLoad() {
   console.log("running generateLuggageOnLoad");
 
@@ -42,83 +60,20 @@ function generateLuggageOnLoad() {
   const petCarrier = localStorage.getItem("petCarrier");
 
   window.addEventListener("load", (e) => {
-    var parsedLuggage;
-    const listsContainer = document.getElementById("lists");
-
     if (mainLuggage) {
-      const luggageType = "mainLuggage";
-      const luggageCard = listTemplate(luggageType);
-      parsedLuggage = JSON.parse(mainLuggage);
-      for (const [key, value] of Object.entries(parsedLuggage)) {
-        const listGroup = listGroupTemplate(luggageType, key, value);
-        luggageCard.appendChild(listGroup);
-        listsContainer.appendChild(luggageCard);
-      }
-      const cardFooter = newItemFooterTemplate("main");
-      luggageCard.appendChild(cardFooter);
-      listsContainer.appendChild(luggageCard);
-
-      addItem("main");
+      generateLuggage(mainLuggage, "mainLuggage", "main");
     }
     if (cabinLuggage) {
-      const luggageType = "cabinLuggage";
-      const luggageCard = listTemplate(luggageType);
-      parsedLuggage = JSON.parse(cabinLuggage);
-      for (const [key, value] of Object.entries(parsedLuggage)) {
-        const listGroup = listGroupTemplate(luggageType, key, value);
-        luggageCard.appendChild(listGroup);
-        listsContainer.appendChild(luggageCard);
-      }
-      const cardFooter = newItemFooterTemplate("cabin");
-      luggageCard.appendChild(cardFooter);
-      listsContainer.appendChild(luggageCard);
-
-      addItem("cabin");
+      generateLuggage(cabinLuggage, "cabinLuggage", "cabin");
     }
     if (personalLuggage) {
-      const luggageType = "personalLuggage";
-      const luggageCard = listTemplate(luggageType);
-      parsedLuggage = JSON.parse(personalLuggage);
-      for (const [key, value] of Object.entries(parsedLuggage)) {
-        const listGroup = listGroupTemplate(luggageType, key, value);
-        luggageCard.appendChild(listGroup);
-        listsContainer.appendChild(luggageCard);
-      }
-      const cardFooter = newItemFooterTemplate("personal");
-      luggageCard.appendChild(cardFooter);
-      listsContainer.appendChild(luggageCard);
-
-      addItem("personal");
+      generateLuggage(personalLuggage, "personalLuggage", "personal");
     }
     if (purseLuggage) {
-      const luggageType = "purseLuggage";
-      const luggageCard = listTemplate(luggageType);
-      parsedLuggage = JSON.parse(purseLuggage);
-      for (const [key, value] of Object.entries(parsedLuggage)) {
-        const listGroup = listGroupTemplate(luggageType, key, value);
-        luggageCard.appendChild(listGroup);
-        listsContainer.appendChild(luggageCard);
-      }
-      const cardFooter = newItemFooterTemplate("purse");
-      luggageCard.appendChild(cardFooter);
-      listsContainer.appendChild(luggageCard);
-
-      addItem("purse");
+      generateLuggage(purseLuggage, "purseLuggage", "purse");
     }
     if (petCarrier) {
-      const luggageType = "petCarrier";
-      const luggageCard = listTemplate(luggageType);
-      parsedLuggage = JSON.parse(petCarrier);
-      for (const [key, value] of Object.entries(parsedLuggage)) {
-        const listGroup = listGroupTemplate(luggageType, key, value);
-        luggageCard.appendChild(listGroup);
-        listsContainer.appendChild(luggageCard);
-      }
-      const cardFooter = newItemFooterTemplate("pet");
-      luggageCard.appendChild(cardFooter);
-      listsContainer.appendChild(luggageCard);
-
-      addItem("pet");
+      generateLuggage(petCarrier, "petCarrier", "pet");
     } else if (!mainLuggage && !cabinLuggage && !personalLuggage && !purseLuggage && !petCarrier) {
       //add messages as user feedback instead
       console.log("No luggage found - try adding some luggage");
@@ -130,102 +85,57 @@ function generateLuggageOnLoad() {
   });
 }
 
+function addLuggage(addLuggage, luggageType) {
+  const listsContainer = document.getElementById("lists");
+  const luggage = localStorage.getItem(addLuggage);
+  const checkLuggageCategories = JSON.parse(luggage);
+  const lowerCaseLuggageType = luggageType.toLowerCase();
+  const luggageCard = listTemplate(luggageType);
+
+  if (!luggage || (checkLuggageCategories.clothes.length === 0 && checkLuggageCategories.electronics.length === 0 && checkLuggageCategories.mischellaneous.length === 0 && checkLuggageCategories.footwear.length === 0 && checkLuggageCategories.toiletries.length === 0 && checkLuggageCategories.personalitems.length === 0)) {
+    console.log("running no luggage");
+    generateIds();
+    initializeStorage(lowerCaseLuggageType);
+    const startLuggage = localStorage.getItem(addLuggage);
+    const parsedLuggage = JSON.parse(startLuggage);
+    for (const [key, value] of Object.entries(parsedLuggage)) {
+      listGroupTemplate(luggageType, key, value, luggageCard);
+    }
+    const cardFooter = newItemFooterTemplate(lowerCaseLuggageType);
+    luggageCard.appendChild(cardFooter);
+    listsContainer.appendChild(luggageCard);
+  } else {
+    console.log("luggage already added");
+  }
+}
+
 async function addNewLuggages(luggageType) {
   console.log("running addLuggage");
 
-  const listsContainer = document.getElementById("lists");
-  const luggageCard = listTemplate(luggageType);
+  // const listsContainer = document.getElementById("lists");
+  // const luggageCard = listTemplate(luggageType);
   const lowerCaseLuggageType = luggageType.toLowerCase();
 
   // add the other luggage types here as well
   if (lowerCaseLuggageType.includes("main")) {
-    const luggage = localStorage.getItem("mainLuggage");
-    if (!luggage) {
-      console.log("running no luggage");
-      generateIds();
-      initializeStorage(lowerCaseLuggageType);
-      const startLuggage = localStorage.getItem("mainLuggage");
-      parsedLuggage = JSON.parse(startLuggage);
-    } else {
-      parsedLuggage = JSON.parse(luggage);
-    }
-    for (const [key, value] of Object.entries(parsedLuggage)) {
-      const listGroup = listGroupTemplate(luggageType, key, value);
-      luggageCard.appendChild(listGroup);
-    }
+    addLuggage("mainLuggage", luggageType);
   }
   if (lowerCaseLuggageType.includes("cabin")) {
-    const luggage = localStorage.getItem("cabinLuggage");
-    var parsedLuggage;
-    if (!luggage) {
-      console.log("running with no-luggage");
-      generateIds();
-      initializeStorage(lowerCaseLuggageType);
-      const startLuggage = localStorage.getItem("cabinLuggage");
-      parsedLuggage = JSON.parse(startLuggage);
-    } else {
-      parsedLuggage = JSON.parse(luggage);
-    }
-    for (const [key, value] of Object.entries(parsedLuggage)) {
-      const listGroup = listGroupTemplate(luggageType, key, value);
-      luggageCard.appendChild(listGroup);
-    }
+    addLuggage("cabinLuggage", luggageType);
   }
   if (lowerCaseLuggageType.includes("purse")) {
-    const luggage = localStorage.getItem("purseLuggage");
-    var parsedLuggage;
-    if (!luggage) {
-      console.log("running with no-luggage");
-      generateIds();
-      initializeStorage(lowerCaseLuggageType);
-      const startLuggage = localStorage.getItem("purseLuggage");
-      parsedLuggage = JSON.parse(startLuggage);
-    } else {
-      parsedLuggage = JSON.parse(luggage);
-    }
-    for (const [key, value] of Object.entries(parsedLuggage)) {
-      const listGroup = listGroupTemplate(luggageType, key, value);
-      luggageCard.appendChild(listGroup);
-    }
+    addLuggage("purseLuggage", luggageType);
   }
   if (lowerCaseLuggageType.includes("personal")) {
-    const luggage = localStorage.getItem("personalLuggage");
-    var parsedLuggage;
-    if (!luggage) {
-      console.log("running with no-luggage");
-      generateIds();
-      initializeStorage(lowerCaseLuggageType);
-      const startLuggage = localStorage.getItem("personalLuggage");
-      parsedLuggage = JSON.parse(startLuggage);
-    } else {
-      parsedLuggage = JSON.parse(luggage);
-    }
-    for (const [key, value] of Object.entries(parsedLuggage)) {
-      const listGroup = listGroupTemplate(luggageType, key, value);
-      luggageCard.appendChild(listGroup);
-    }
+    addLuggage("personalLuggage", luggageType);
   }
   if (lowerCaseLuggageType.includes("pet")) {
-    const luggage = localStorage.getItem("petCarrier");
-    var parsedLuggage;
-    if (!luggage) {
-      console.log("running with no-luggage");
-      generateIds();
-      initializeStorage(lowerCaseLuggageType);
-      const startLuggage = localStorage.getItem("petCarrier");
-      parsedLuggage = JSON.parse(startLuggage);
-    } else {
-      parsedLuggage = JSON.parse(luggage);
-    }
-    for (const [key, value] of Object.entries(parsedLuggage)) {
-      const listGroup = listGroupTemplate(luggageType, key, value);
-      luggageCard.appendChild(listGroup);
-    }
+    addLuggage("petCarrier", luggageType);
   }
 
-  const cardFooter = newItemFooterTemplate(lowerCaseLuggageType);
-  luggageCard.appendChild(cardFooter);
-  listsContainer.appendChild(luggageCard);
+  // const cardFooter = newItemFooterTemplate(lowerCaseLuggageType);
+  // luggageCard.appendChild(cardFooter);
+  // listsContainer.appendChild(luggageCard);
 
-  location.reload();
+  // location.reload();
 }
