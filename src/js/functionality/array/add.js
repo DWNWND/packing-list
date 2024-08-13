@@ -6,6 +6,9 @@ export function pushToArray(luggageType, checkedCategory, newItem) {
   const newClothesArr = parsedLuggage.clothes;
   const newElectronicsArr = parsedLuggage.electronics;
   const newMischellaneousArr = parsedLuggage.mischellaneous;
+  const newFootwearArr = parsedLuggage.footwear;
+  const newToiletriesArr = parsedLuggage.toiletries;
+  const newPersonalitemsArr = parsedLuggage.personalitems;
 
   var randomId = "id" + Math.random().toString(16).slice(2);
 
@@ -17,30 +20,30 @@ export function pushToArray(luggageType, checkedCategory, newItem) {
 
   if (checkedCategory.toLowerCase().includes("clothes")) {
     newClothesArr.push(item);
-
-    const groupContainer = document.getElementById(`${luggageType}clothes`);
-    const listItem = itemTemplate(newItem, false, randomId, "clothes");
-    groupContainer.append(listItem);
   }
   if (checkedCategory.toLowerCase().includes("electronics")) {
     newElectronicsArr.push(item);
-
-    const groupContainer = document.getElementById(`${luggageType}electronics`);
-    const listItem = itemTemplate(newItem, false, randomId, "electronics");
-    groupContainer.append(listItem);
   }
   if (checkedCategory.toLowerCase().includes("mischellaneous")) {
     newMischellaneousArr.push(item);
-
-    const groupContainer = document.getElementById(`${luggageType}mischellaneous`);
-    const listItem = itemTemplate(newItem, false, randomId, "mischellaneous");
-    groupContainer.append(listItem);
+  }
+  if (checkedCategory.toLowerCase().includes("footwear")) {
+    newFootwearArr.push(item);
+  }
+  if (checkedCategory.toLowerCase().includes("toiletries")) {
+    newToiletriesArr.push(item);
+  }
+  if (checkedCategory.toLowerCase().includes("personalitems")) {
+    newPersonalitemsArr.push(item);
   }
 
   const newLuggage = {
     clothes: newClothesArr,
     electronics: newElectronicsArr,
     mischellaneous: newMischellaneousArr,
+    footwear: newFootwearArr,
+    toiletries: newToiletriesArr,
+    personalitems: newPersonalitemsArr,
   };
 
   localStorage.setItem(luggageType, JSON.stringify(newLuggage));
